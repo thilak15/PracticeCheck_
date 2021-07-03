@@ -1,0 +1,28 @@
+﻿@model IEnumerable<PracticeCheck_.Models.MenuItem>
+
+<h1>Menu Items</h1>
+<hr />
+<table class="table ">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Id)</th>
+            <th>@Html.DisplayNameFor(m => m.Name)</th>
+            <th>@Html.DisplayNameFor(m => m.Price)</th>
+            <th>Action</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m => i.Id)</td>
+                <td>@Html.DisplayFor(m => i.Name)</td>
+                <td>@Html.DisplayFor(m => i.Price)</td>
+                <td><a asp-action="AddToCart" asp-controller="Home" asp-route-menuItemId="@i.Id">Add to Cart</a></td>
+            </tr>
+
+        }
+    </tbody>
+</table>
